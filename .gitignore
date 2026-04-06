@@ -1,0 +1,6 @@
+pyrightconfig.json
+weights/
+results/
+data
+data/
+__pycache__/

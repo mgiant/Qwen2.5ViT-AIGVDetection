@@ -1,0 +1,29 @@
+model: 'NPR'
+save_dir: './results/NPR/140k/baseline'
+
+max_epoch: 30
+
+train_batch_size: 32
+val_batch_size: 32
+num_workers: 4
+select_frame_nums: 1
+lr: 0.00001
+
+train_csv:
+  - './data/fake_images/fake_apple_t2v.csv'
+  - './data/fake_images/fake_causvid.csv'
+  - './data/fake_images/fake_gen3.csv'
+  - './data/fake_images/fake_hunyuan.csv'
+  - './data/fake_images/fake_jimeng.csv'
+  - './data/fake_images/fake_kling.csv'
+  - './data/fake_images/fake_luma.csv'
+  - './data/fake_images/fake_mira.csv'
+  - './data/fake_images/fake_opensorav1-1.csv'
+  - './data/fake_images/fake_pika.csv'
+  - './data/fake_images/fake_repvideo.csv'
+  - './data/fake_images/fake_sora.csv'
+  - './data/fake_images/fake_wanx21.csv'
+  - './data/fake_images/fake_animatediff-v2.csv'
+  - './data/fake_images/fake_videocrafter2.csv'
+  - './data/real_images/real_kinetics.csv'
+val_csv: 'data/moviegen-2k/all.csv'

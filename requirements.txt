@@ -1,0 +1,13 @@
+torch
+torchvision
+transformers
+peft
+safetensors
+tensorboard
+pyyaml
+pandas
+numpy
+scikit-learn
+tqdm
+Pillow
+decord

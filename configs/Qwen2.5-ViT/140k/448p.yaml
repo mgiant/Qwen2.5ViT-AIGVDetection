@@ -1,0 +1,39 @@
+model: 'Qwen2_5-ViT'
+model_source: ./weights/Qwen2.5-VL-3B-Instruct
+tuning_mode: 'sft'
+use_bf16: True
+
+save_dir: './results/Qwen2.5-ViT/140k/448p'
+
+max_epoch: 5
+
+train_batch_size: 4
+val_batch_size: 8
+num_workers: 1
+lr: 0.00001
+train_loader: qwen
+val_loader: qwen
+test_loader: qwen
+min_pixels: 50176 # 224*224
+max_pixels: 200704 # 448*448
+select_frame_nums: 8
+temporal_pad: False
+
+train_csv:
+  - './data/fake_images/fake_apple_t2v.csv'
+  - './data/fake_images/fake_causvid.csv'
+  - './data/fake_images/fake_gen3.csv'
+  - './data/fake_images/fake_hunyuan.csv'
+  - './data/fake_images/fake_jimeng.csv'
+  - './data/fake_images/fake_kling.csv'
+  - './data/fake_images/fake_luma.csv'
+  - './data/fake_images/fake_mira.csv'
+  - './data/fake_images/fake_opensorav1-1.csv'
+  - './data/fake_images/fake_pika.csv'
+  - './data/fake_images/fake_repvideo.csv'
+  - './data/fake_images/fake_sora.csv'
+  - './data/fake_images/fake_wanx21.csv'
+  - './data/fake_images/fake_animatediff-v2.csv'
+  - './data/fake_images/fake_videocrafter2.csv'
+  - './data/real_images/real_kinetics.csv'
+val_csv: 'data/moviegen-2k/all.csv'
