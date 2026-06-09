@@ -110,13 +110,14 @@ class Dataset_Qwen25ViT(Dataset):
         self.fps = cfg.get("fps", 2)
         self.default_image_ext = cfg.get("image_ext", ".jpg")
 
-        self.processor = AutoVideoProcessor.from_pretrained(
-            cfg.get('model_source'),
-            size={
-                "shortest_edge": int(cfg["min_pixels"]),
-                "longest_edge": int(cfg["max_pixels"]),
-            },
-        )
+        self.processor = AutoVideoProcessor.from_pretrained(cfg.get('model_source'))
+        # Keep this assignment after from_pretrained for compatibility across
+        # transformers versions and pretrained configs that may contain
+        # min_pixels / max_pixels fields.
+        self.processor.size = {
+            "shortest_edge": int(cfg["min_pixels"]),
+            "longest_edge": int(cfg["max_pixels"]),
+        }
         self.transform = self._build_augmentation(cfg) if phase == "train" else None
 
     # ------------------------------------------------------------------ #
